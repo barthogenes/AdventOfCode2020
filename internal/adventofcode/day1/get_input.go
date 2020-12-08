@@ -4,10 +4,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/barthogenes/adventofcode2020/internal/adventofcode/api"
+	"../api"
 )
 
-// GetInput Get the input for adventofcode.
+// GetInput Get the input from adventofcode.com.
 func GetInput(api api.AdventOfCodeAPI) []int {
 	// Get the input in bytes for the first day.
 	bytes := api.GetInputInBytes(1)
