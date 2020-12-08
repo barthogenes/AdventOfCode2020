@@ -24,7 +24,7 @@ func TestGetAnswerPart2(t *testing.T) {
 	got := GetAnswerPart2(input)
 
 	// Assert
-	want := 955584
+	want := 241861950
 	if got != want {
 		t.Errorf("GetAnswerPart1(input) = %d; want %d", got, want)
 	}
