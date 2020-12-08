@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"../api"
+	"github.com/barthogenes/adventofcode2020/internal/adventofcode/api"
 )
 
 // GetInput Get the input from adventofcode.com.
