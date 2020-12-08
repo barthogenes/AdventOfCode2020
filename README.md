@@ -1,6 +1,8 @@
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
 ![Go version](https://img.shields.io/badge/Go-V1.15-blue)
-![GitHub License](https://img.shields.io/github/license/barthogenes/adventofcode2020)
+[![GoReportCard](https://goreportcard.com/badge/github.com/barthogenes/AdventOfCode2020)](https://goreportcard.com/report/github.com/barthogenes/AdventOfCode2020)
+![GitHub License](https://img.shields.io/github/license/barthogenes/AdventOfCode2020)
+[![Badges from naereen.github.io](https://img.shields.io/badge/Badges%20from-naereen.github.io-blue)](https://naereen.github.io/badges/)
 
 # AdventOfCode2020
 
