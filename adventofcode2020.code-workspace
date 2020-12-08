@@ -1,0 +1,52 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"go.useLanguageServer": true,
+		"[go]": {
+			"editor.formatOnSave": true,
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true,
+			},
+			// Optional: Disable snippets, as they conflict with completion ranking.
+			"editor.snippetSuggestions": "none",
+		},
+		"[go.mod]": {
+			"editor.formatOnSave": true,
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true,
+			},
+		},
+		"gopls": {
+			// Add parameter placeholders when completing a function.
+			"usePlaceholders": true,
+			// If true, enable additional analyses with staticcheck.
+			// Warning: This will significantly increase memory usage.
+			"staticcheck": false,
+			"experimentalWorkspaceModule": true,
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"golang.go",
+			"formulahendry.code-runner"
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch",
+				"type": "go",
+				"request": "launch",
+				"mode": "auto",
+				"program": "${workspaceFolder}/cmd/main.go",
+				"env": {},
+				"args": []
+			}
+		]
+	}
+}
