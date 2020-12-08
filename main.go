@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	"github.com/barthogenes/adventofcode2020/internal/adventofcode/api"
-	"github.com/barthogenes/adventofcode2020/internal/adventofcode/day1"
+	"github.com/barthogenes/adventofcode2020/api"
+	"github.com/barthogenes/adventofcode2020/day1"
 )
 
 func main() {
