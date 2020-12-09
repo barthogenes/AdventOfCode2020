@@ -7,6 +7,11 @@ import (
 
 	"github.com/barthogenes/adventofcode2020/api"
 	"github.com/barthogenes/adventofcode2020/day1"
+	day1part1 "github.com/barthogenes/adventofcode2020/day1/part1"
+	day1part2 "github.com/barthogenes/adventofcode2020/day1/part2"
+	"github.com/barthogenes/adventofcode2020/day2"
+	day2part1 "github.com/barthogenes/adventofcode2020/day2/part1"
+	day2part2 "github.com/barthogenes/adventofcode2020/day2/part2"
 )
 
 func main() {
@@ -28,11 +33,22 @@ func main() {
 
 	// Showing the answers to the user.
 	fmt.Println("AdventOfCode2020 puzzle implementations in Go, by Bart Hogenes :)")
-	fmt.Println("Day 1:")
+
+	// Day 1
+	fmt.Println("Day 1 - Report Repair:")
 	day1Input := day1.GetInput(api)
-	answerDay1Part1 := day1.GetAnswerPart1(day1Input)
+	answerDay1Part1 := day1part1.GetAnswer(day1Input)
 	fmt.Println("Part 1 answer =", answerDay1Part1)
 
-	answerDay1Part2 := day1.GetAnswerPart2(day1Input)
+	answerDay1Part2 := day1part2.GetAnswer(day1Input)
 	fmt.Println("Part 2 answer =", answerDay1Part2)
+
+	// Day 2
+	fmt.Println("Day 2 - Password Philosophy:")
+	day2Input := day2.GetInput(api)
+	answerDay2Part1 := day2part1.GetAnswer(day2Input)
+	fmt.Println("Part 1 answer =", answerDay2Part1)
+
+	answerDay2Part2 := day2part2.GetAnswer(day2Input)
+	fmt.Println("Part 2 answer =", answerDay2Part2)
 }

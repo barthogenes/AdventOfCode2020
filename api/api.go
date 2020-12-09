@@ -14,31 +14,37 @@ type AdventOfCodeAPI struct {
 
 const adventOfCodeSessionCookieName = "session"
 
-// GetInputInBytes Get the input for the given advent day. Note: Public (aka Pascal-cased) functions must always have a documentation comment above them in Go.
-func (api AdventOfCodeAPI) GetInputInBytes(day int) []byte {
+// GetInputForDay Get the input for the given advent day. Note: Public (aka Pascal-cased) functions must always have a documentation comment above them in Go.
+func (api AdventOfCodeAPI) GetInputForDay(day int) string {
 	adventOfCodeURL := getAdventOfCodeURL(api.Year, day)
 
+	// Create the request.
 	req, err := http.NewRequest("GET", adventOfCodeURL, nil)
 	if err != nil {
 		panic(err)
 	}
 
+	// Add the session cookie to it, else we get an unauthorised error.
 	req.AddCookie(&http.Cookie{Name: adventOfCodeSessionCookieName, Value: api.Cookie})
 
+	// Perform the request.
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
 		panic(err)
 	}
-	// do this now so it won't be forgotten
+
+	// Use the "defer" keyword to close the request after this function returns.
 	defer resp.Body.Close()
-	// reads html as a slice of bytes
+
+	// Read the html as a slice of bytes.
 	htmlBytes, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		panic(err)
 	}
 
-	return htmlBytes
+	// Convert it to one big string and return it.
+	return string(htmlBytes[:])
 }
 
 // Construct the url of the adventofcode web API. Note: This is a private function because the name is camelCased.
