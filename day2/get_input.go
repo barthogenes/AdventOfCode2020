@@ -10,34 +10,34 @@ import (
 
 // PasswordPolicySet A struct to represent the input data from day 2.
 type PasswordPolicySet struct {
-	min      int
-	max      int
-	char     string
-	password string
+	Min      int
+	Max      int
+	Char     string
+	Password string
 }
 
 // GetInput Get the input from adventofcode.com.
 func GetInput(api api.AdventOfCodeAPI) []PasswordPolicySet {
-	// Get the input in bytes for the second day.
-	bytes := api.GetInputInBytes(2)
+	// Get the input for the second day.
+	inputString := api.GetInputForDay(2)
 
-	// Convert it to a string.
-	inputString := string(bytes[:])
+	// Convert it to an array of numbers.
+	input := convertToPasswordPolicySetArray(inputString)
 
-	// Split it into a Slice (dynamically sized array in Go) of strings.
-	inputStringSlice := strings.Split(inputString, "\n")
+	return input
+}
 
-	// Convert the Slice of strings to a Slice of PasswordPolicySets.
+func convertToPasswordPolicySetArray(input string) []PasswordPolicySet {
+	// Split into an array of strings.
+	inputStrings := strings.Split(input, "\n")
+
+	// Convert each string to a PasswordPolicySet.
 	passwordPolicySets := []PasswordPolicySet{}
-	for index := range inputStringSlice {
-		str := inputStringSlice[index]
-		if str == "" {
+	for _, element := range inputStrings {
+		if element == "" {
 			continue
 		}
-
-		passwordPolicySet := stringToPasswordPolicySet(str)
-
-		// Add it to the Slice.
+		passwordPolicySet := stringToPasswordPolicySet(element)
 		passwordPolicySets = append(passwordPolicySets, passwordPolicySet)
 	}
 
@@ -45,7 +45,7 @@ func GetInput(api api.AdventOfCodeAPI) []PasswordPolicySet {
 }
 
 func stringToPasswordPolicySet(input string) PasswordPolicySet {
-	re := regexp.MustCompile("(\\d)-(\\d) (\\w): (\\w+)")
+	re := regexp.MustCompile("(\\d+)-(\\d+) (\\w): (\\w+)")
 	found := re.FindStringSubmatch(input)
 
 	min, err := strconv.Atoi(found[1])

@@ -1,31 +1,43 @@
 package day2
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestStringToPasswordPolicySet(t *testing.T) {
 	// Arrange
-	var strInput = "1-3 a: abcde"
+	var input = `
+1-3 a: abcde
+1-3 b: cdefg
+2-9 c: ccccccccc
+`
 
 	// Act
-	got := stringToPasswordPolicySet(strInput)
+	got := convertToPasswordPolicySetArray(input)
 
 	// Assert
-	want := PasswordPolicySet{
-		min:      1,
-		max:      3,
-		char:     "a",
-		password: "abcde",
+	want := []PasswordPolicySet{
+		{
+			Min:      1,
+			Max:      3,
+			Char:     "a",
+			Password: "abcde",
+		},
+		{
+			Min:      1,
+			Max:      3,
+			Char:     "b",
+			Password: "cdefg",
+		},
+		{
+			Min:      2,
+			Max:      9,
+			Char:     "c",
+			Password: "ccccccccc",
+		},
 	}
-	if got.min != want.min {
-		t.Errorf("stringToPasswordPolicySet(%s) = %d; want %d", strInput, got.min, want.min)
-	}
-	if got.max != want.max {
-		t.Errorf("stringToPasswordPolicySet(%s) = %d; want %d", strInput, got.max, want.max)
-	}
-	if got.char != want.char {
-		t.Errorf("stringToPasswordPolicySet(%s) = %s; want %s", strInput, got.char, want.char)
-	}
-	if got.password != want.password {
-		t.Errorf("stringToPasswordPolicySet(%s) = %s; want %s", strInput, got.password, want.password)
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("convertToPasswordPolicySetArray(%v) = %v; want %v", input, got, want)
 	}
 }

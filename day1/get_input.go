@@ -7,34 +7,41 @@ import (
 	"github.com/barthogenes/adventofcode2020/api"
 )
 
-// GetInput Get the input from adventofcode.com.
+// GetInput Get input from adventofcode.com.
 func GetInput(api api.AdventOfCodeAPI) []int {
-	// Get the input in bytes for the first day.
-	bytes := api.GetInputInBytes(1)
+	// Get the input for the first day.
+	inputString := api.GetInputForDay(1)
 
-	// Convert it to a string.
-	inputString := string(bytes[:])
+	// Convert it to an array of numbers.
+	input := convertToNumbersArray(inputString)
 
-	// Split it into a Slice (dynamically sized array in Go) of strings.
-	inputStringSlice := strings.Split(inputString, "\n")
+	return input
+}
 
-	// Convert the Slice of strings to a Slice of numbers.
-	inputNumberSlice := []int{}
-	for index := range inputStringSlice {
-		str := inputStringSlice[index]
-		if str == "" {
+func convertToNumbersArray(inputString string) []int {
+	// Split into a array of strings.
+	inputStrings := strings.Split(inputString, "\n")
+
+	inputNumbers := []int{}
+	for _, element := range inputStrings {
+		if element == "" {
 			continue
 		}
 
-		// Convert the string to a number.
-		num, err := strconv.Atoi(str)
-		if err != nil {
-			panic(err)
-		}
+		// Parse the string to a number.
+		num := parseString(element)
 
-		// Add it to the Slice of numbers.
-		inputNumberSlice = append(inputNumberSlice, num)
+		// Add it to the array of numbers.
+		inputNumbers = append(inputNumbers, num)
 	}
 
-	return inputNumberSlice
+	return inputNumbers
+}
+
+func parseString(str string) int {
+	num, err := strconv.Atoi(str)
+	if err != nil {
+		panic(err)
+	}
+	return num
 }

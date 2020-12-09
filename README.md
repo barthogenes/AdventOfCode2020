@@ -20,7 +20,7 @@ My attempt at the Advent Of Code 2020 challenge.
 6. Open a command line and run the following:
 
    ```go
-   go run cmd/main.go
+   go run .\main.go
    ```
 
 7. ???
