@@ -15,7 +15,7 @@ var input = []int{
 	1456,
 }
 
-func TestGetAnswer(t *testing.T) {
+func Test_GetAnswer(t *testing.T) {
 	// Act
 	got := GetAnswer(input)
 

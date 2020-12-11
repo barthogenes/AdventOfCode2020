@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestStringToPasswordPolicySet(t *testing.T) {
+func Test_convertToPasswordPolicySetArray(t *testing.T) {
 	// Arrange
 	var input = `
 1-3 a: abcde

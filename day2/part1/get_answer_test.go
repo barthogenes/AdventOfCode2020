@@ -6,7 +6,7 @@ import (
 	"github.com/barthogenes/adventofcode2020/day2"
 )
 
-func TestGetAnswer(t *testing.T) {
+func Test_GetAnswer(t *testing.T) {
 	// Arrange
 	var input = []day2.PasswordPolicySet{
 		{
@@ -38,38 +38,57 @@ func TestGetAnswer(t *testing.T) {
 	}
 }
 
-func TestIsValid_returns_true(t *testing.T) {
-	// Arrange
-	var input = day2.PasswordPolicySet{
-		Min:      1,
-		Max:      3,
-		Char:     "a",
-		Password: "abcde",
+func Test_isValid(t *testing.T) {
+	type args struct {
+		input day2.PasswordPolicySet
 	}
-
-	// Act
-	got := isValid(input)
-
-	// Assert
-	if want := true; got != want {
-		t.Errorf("isValid(%v) = %v; want %v", input, got, want)
+	tests := []struct {
+		name string
+		args args
+		want bool
+	}{
+		{
+			name: "Test_isValid_1",
+			args: args{
+				input: day2.PasswordPolicySet{
+					Min:      1,
+					Max:      3,
+					Char:     "a",
+					Password: "abcde",
+				},
+			},
+			want: true,
+		},
+		{
+			name: "Test_isValid_2",
+			args: args{
+				input: day2.PasswordPolicySet{
+					Min:      1,
+					Max:      3,
+					Char:     "b",
+					Password: "cdefg",
+				},
+			},
+			want: false,
+		},
+		{
+			name: "Test_isValid_3",
+			args: args{
+				input: day2.PasswordPolicySet{
+					Min:      2,
+					Max:      9,
+					Char:     "c",
+					Password: "ccccccccc",
+				},
+			},
+			want: true,
+		},
 	}
-}
-
-func TestIsValid_returns_false(t *testing.T) {
-	// Arrange
-	var input = day2.PasswordPolicySet{
-		Min:      1,
-		Max:      3,
-		Char:     "b",
-		Password: "cdefg",
-	}
-
-	// Act
-	got := isValid(input)
-
-	// Assert
-	if want := false; got != want {
-		t.Errorf("isValid(%v) = %v; want %v", input, got, want)
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := isValid(tt.args.input); got != tt.want {
+				t.Errorf("isValid() = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }

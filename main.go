@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"path/filepath"
 
 	"github.com/barthogenes/adventofcode2020/api"
 	"github.com/barthogenes/adventofcode2020/day1"
@@ -12,21 +10,15 @@ import (
 	"github.com/barthogenes/adventofcode2020/day2"
 	day2part1 "github.com/barthogenes/adventofcode2020/day2/part1"
 	day2part2 "github.com/barthogenes/adventofcode2020/day2/part2"
+	"github.com/barthogenes/adventofcode2020/day3"
+	"github.com/barthogenes/adventofcode2020/util"
 )
 
 func main() {
 	// Getting the cookie from a text file that is not committed to GitHub.
 	// If you get an error, try creating the file "cookie.txt" in the root of this repository
 	// and paste the session cookie value from your "adventofcode.com" browser tab into it.
-	path, err := filepath.Abs("cookie.txt")
-	if err != nil {
-		panic(err)
-	}
-	data, err := ioutil.ReadFile(path)
-	if err != nil {
-		panic(err)
-	}
-	cookie := string(data)
+	cookie := util.ReadFile("cookie.txt")
 
 	// Constructing the AdventOfCodeAPI class to get the input from adventofcode.com.
 	api := api.AdventOfCodeAPI{Year: 2020, Cookie: cookie}
@@ -51,4 +43,13 @@ func main() {
 
 	answerDay2Part2 := day2part2.GetAnswer(day2Input)
 	fmt.Println("Part 2 answer =", answerDay2Part2)
+
+	// Day 3
+	fmt.Println("Day 3 - Toboggan Trajectory:")
+	day3Input := day3.GetInput(api)
+	answerDay3Part1 := day3.GetAnswerPart1(day3Input)
+	fmt.Println("Part 1 answer =", answerDay3Part1)
+
+	answerDay3Part2 := day3.GetAnswerPart2(day3Input)
+	fmt.Println("Part 2 answer =", answerDay3Part2)
 }
