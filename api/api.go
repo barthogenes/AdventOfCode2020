@@ -15,7 +15,7 @@ type AdventOfCodeAPI struct {
 const adventOfCodeSessionCookieName = "session"
 
 // GetInputForDay Get the input for the given advent day. Note: Public (aka Pascal-cased) functions must always have a documentation comment above them in Go.
-func (api AdventOfCodeAPI) GetInputForDay(day int) string {
+func (api *AdventOfCodeAPI) GetInputForDay(day int) string {
 	adventOfCodeURL := getAdventOfCodeURL(api.Year, day)
 
 	// Create the request.

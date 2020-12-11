@@ -8,14 +8,6 @@ import (
 	"github.com/barthogenes/adventofcode2020/api"
 )
 
-// PasswordPolicySet A struct to represent the input data from day 2.
-type PasswordPolicySet struct {
-	Min      int
-	Max      int
-	Char     string
-	Password string
-}
-
 // GetInput Get the input from adventofcode.com.
 func GetInput(api api.AdventOfCodeAPI) []PasswordPolicySet {
 	// Get the input for the second day.

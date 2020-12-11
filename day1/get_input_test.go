@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestConvertToNumbersArray(t *testing.T) {
+func Test_convertToNumbersArray(t *testing.T) {
 	// Arrange
 	var input = `
 1721
