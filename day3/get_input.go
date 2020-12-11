@@ -8,7 +8,6 @@ import (
 
 // GetInput Get the input for the third day.
 func GetInput(api api.AdventOfCodeAPI) [][]string {
-
 	inputString := api.GetInputForDay(3)
 	return getGrid(inputString)
 }
