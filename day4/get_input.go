@@ -1,11 +1,12 @@
 package day4
 
 import (
+	"fmt"
 	"regexp"
-	"strconv"
 	"strings"
 
 	"github.com/barthogenes/adventofcode2020/api"
+	"github.com/barthogenes/adventofcode2020/util"
 )
 
 // GetInput Get the input for the fourth day.
@@ -35,23 +36,30 @@ func parsePassports(lines []string) []Passport {
 		passports = append(passports, passport)
 	}
 
-	return []Passport{}
+	return passports
 }
 
 func parsePassport(line string) Passport {
 	passport := Passport{
-		BirthYear: parseBirthYear(line),
+		BirthYear:      util.ToNumber(extractValue(line, "byr")),
+		IssueYear:      util.ToNumber(extractValue(line, "iyr")),
+		ExpirationYear: util.ToNumber(extractValue(line, "eyr")),
+		Height:         extractValue(line, "hgt"),
+		HairColor:      extractValue(line, "hcl"),
+		EyeColor:       extractValue(line, "ecl"),
+		PassportID:     extractValue(line, "pid"),
+		CountryID:      util.ToNumber(extractValue(line, "cid")),
 	}
 
 	return passport
 }
 
-func parseBirthYear(line string) int {
-	birthYearRegexp := regexp.MustCompile("byr:(\\d+)")
-	birthYearString := birthYearRegexp.FindStringSubmatch(line)[1]
-	birthYear, err := strconv.Atoi(birthYearString)
-	if err != nil {
-		panic(err)
+func extractValue(line, prefix string) string {
+	regex := regexp.MustCompile(fmt.Sprintf("%s:(#?[\\w|\\d]+)", prefix))
+	matches := regex.FindStringSubmatch(line)
+	if len(matches) == 2 {
+		return matches[1]
 	}
-	return birthYear
+
+	return ""
 }

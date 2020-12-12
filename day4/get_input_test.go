@@ -38,13 +38,33 @@ func Test_splitIntoStrings(t *testing.T) {
 
 var validPassportString = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm"
 
-func Test_parseBirthYear(t *testing.T) {
+func Test_parsePassport(t *testing.T) {
 	// Act
-	got := parseBirthYear(validPassportString)
+	got := parsePassport(validPassportString)
 
 	// Assert
-	want := 1937
+	want := Passport{
+		BirthYear:      1937,
+		IssueYear:      2017,
+		ExpirationYear: 2020,
+		Height:         "183cm",
+		HairColor:      "#fffffd",
+		EyeColor:       "gry",
+		PassportID:     "860033327",
+		CountryID:      147,
+	}
 	if !reflect.DeepEqual(got, want) {
-		t.Errorf("parseBirthYear(input) = %v; want %v", got, want)
+		t.Errorf("extractNumber(input) = %v; want %v", got, want)
+	}
+}
+
+func Test_extractValue(t *testing.T) {
+	// Act
+	got := extractValue(validPassportString, "byr")
+
+	// Assert
+	want := "1937"
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("extractNumber(input) = %v; want %v", got, want)
 	}
 }
