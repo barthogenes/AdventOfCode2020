@@ -4,17 +4,17 @@ import (
 	"testing"
 )
 
-func Test_GetAnswerPart1(t *testing.T) {
-	// Arrange
-	// ..##...
-	// #...#..
-	// .#....#
-	input := [][]string{
-		{".", ".", "#", "#", ".", ".", "."},
-		{"#", ".", ".", ".", "#", ".", "."},
-		{".", "#", ".", ".", ".", ".", "#"},
-	}
+// Arrange
+// ..##...
+// #...#..
+// .#....#
+var input = [][]string{
+	{".", ".", "#", "#", ".", ".", "."},
+	{"#", ".", ".", ".", "#", ".", "."},
+	{".", "#", ".", ".", ".", ".", "#"},
+}
 
+func Test_GetAnswerPart1(t *testing.T) {
 	// Act
 	got := GetAnswerPart1(input)
 
@@ -25,16 +25,6 @@ func Test_GetAnswerPart1(t *testing.T) {
 }
 
 func Test_GetAnswerPart2(t *testing.T) {
-	// Arrange
-	// ..##...
-	// #...#..
-	// .#....#
-	input := [][]string{
-		{".", ".", "#", "#", ".", ".", "."},
-		{"#", ".", ".", ".", "#", ".", "."},
-		{".", "#", ".", ".", ".", ".", "#"},
-	}
-
 	// Act
 	got := GetAnswerPart2(input)
 
