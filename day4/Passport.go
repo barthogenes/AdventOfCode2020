@@ -5,7 +5,7 @@ type Passport struct {
 	BirthYear      int
 	IssueYear      int
 	ExpirationYear int
-	HeightInCm     int
+	Height         string
 	HairColor      string
 	EyeColor       string
 	PassportID     string

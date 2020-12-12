@@ -1,6 +1,8 @@
 package day4
 
 import (
+	"regexp"
+	"strconv"
 	"strings"
 
 	"github.com/barthogenes/adventofcode2020/api"
@@ -26,6 +28,30 @@ func splitIntoStrings(input string) []string {
 	return lines
 }
 
-func parsePassports([]string) []Passport {
+func parsePassports(lines []string) []Passport {
+	passports := []Passport{}
+	for _, line := range lines {
+		passport := parsePassport(line)
+		passports = append(passports, passport)
+	}
+
 	return []Passport{}
+}
+
+func parsePassport(line string) Passport {
+	passport := Passport{
+		BirthYear: parseBirthYear(line),
+	}
+
+	return passport
+}
+
+func parseBirthYear(line string) int {
+	birthYearRegexp := regexp.MustCompile("byr:(\\d+)")
+	birthYearString := birthYearRegexp.FindStringSubmatch(line)[1]
+	birthYear, err := strconv.Atoi(birthYearString)
+	if err != nil {
+		panic(err)
+	}
+	return birthYear
 }
