@@ -1,10 +1,10 @@
 package day1
 
 import (
-	"strconv"
 	"strings"
 
 	"github.com/barthogenes/adventofcode2020/api"
+	"github.com/barthogenes/adventofcode2020/util"
 )
 
 // GetInput Get input from adventofcode.com.
@@ -29,19 +29,11 @@ func convertToNumbersArray(inputString string) []int {
 		}
 
 		// Parse the string to a number.
-		num := parseString(element)
+		num := util.ToNumber(element)
 
 		// Add it to the array of numbers.
 		inputNumbers = append(inputNumbers, num)
 	}
 
 	return inputNumbers
-}
-
-func parseString(str string) int {
-	num, err := strconv.Atoi(str)
-	if err != nil {
-		panic(err)
-	}
-	return num
 }
