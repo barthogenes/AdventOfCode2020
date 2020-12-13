@@ -7,7 +7,7 @@ func AdvancedPassportValidation(passport Passport) bool {
 		isBetween(passport.ExpirationYear, 2020, 2030) &&
 		isValidHeight(passport.Height) &&
 		isValidColor(passport.HairColor) &&
-		eyeColorExists(passport.EyeColor) &&
+		isValidEyeColor(passport.EyeColor) &&
 		isValidPassportID(passport.PassportID)
 }
 
@@ -23,7 +23,7 @@ func isValidColor(color string) bool {
 	return false
 }
 
-func eyeColorExists(eyeColor string) bool {
+func isValidEyeColor(eyeColor string) bool {
 	return false
 }
 

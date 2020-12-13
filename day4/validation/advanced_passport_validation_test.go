@@ -16,42 +16,28 @@ func Test_isBetween(t *testing.T) {
 		want bool
 	}{
 		{
-			name: "Should not allow more than 4 numbers",
-			args: args{
-				value: 19201,
-			},
-			want: false,
-		},
-		{
-			name: "192",
-			args: args{
-				value: 192,
-			},
-			want: false,
-		},
-		{
-			name: "1919",
+			name: "Should disallow anything less than min",
 			args: args{
 				value: 1919,
 			},
 			want: false,
 		},
 		{
-			name: "2003",
+			name: "Should disallow anything greater than max",
 			args: args{
 				value: 2003,
 			},
 			want: false,
 		},
 		{
-			name: "1920",
+			name: "Should allow min",
 			args: args{
 				value: 1920,
 			},
 			want: true,
 		},
 		{
-			name: "2002",
+			name: "Should allow max",
 			args: args{
 				value: 2002,
 			},
