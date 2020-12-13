@@ -175,7 +175,7 @@ func Test_isValidColor(t *testing.T) {
 		{
 			name: "Should have exactly 6 characters after the hashtag",
 			args: args{
-				color: "#fffff",
+				color: "#ffffff",
 			},
 			want: true,
 		},
@@ -220,9 +220,9 @@ func Test_isValidEyeColor(t *testing.T) {
 		want bool
 	}{
 		{
-			name: "Should disallow grn",
+			name: "Should disallow pur",
 			args: args{
-				eyeColor: "grn",
+				eyeColor: "pur",
 			},
 			want: false,
 		},
@@ -251,6 +251,13 @@ func Test_isValidEyeColor(t *testing.T) {
 			name: "Should allow gry",
 			args: args{
 				eyeColor: "gry",
+			},
+			want: true,
+		},
+		{
+			name: "Should allow grn",
+			args: args{
+				eyeColor: "grn",
 			},
 			want: true,
 		},
