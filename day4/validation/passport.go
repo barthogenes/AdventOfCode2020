@@ -1,4 +1,4 @@
-package day4
+package validation
 
 // Passport A struct to represent the input data from day 3.
 type Passport struct {

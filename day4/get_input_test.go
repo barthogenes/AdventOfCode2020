@@ -3,6 +3,8 @@ package day4
 import (
 	"reflect"
 	"testing"
+
+	"github.com/barthogenes/adventofcode2020/day4/validation"
 )
 
 // Arrange
@@ -43,7 +45,7 @@ func Test_parsePassport(t *testing.T) {
 	got := parsePassport(validPassportString)
 
 	// Assert
-	want := Passport{
+	want := validation.Passport{
 		BirthYear:      1937,
 		IssueYear:      2017,
 		ExpirationYear: 2020,

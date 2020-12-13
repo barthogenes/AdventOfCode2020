@@ -6,16 +6,17 @@ import (
 	"strings"
 
 	"github.com/barthogenes/adventofcode2020/api"
+	"github.com/barthogenes/adventofcode2020/day4/validation"
 	"github.com/barthogenes/adventofcode2020/util"
 )
 
 // GetInput Get the input for the fourth day.
-func GetInput(api api.AdventOfCodeAPI) []Passport {
+func GetInput(api api.AdventOfCodeAPI) []validation.Passport {
 	input := api.GetInputForDay(4)
 	return parseInput(input)
 }
 
-func parseInput(input string) []Passport {
+func parseInput(input string) []validation.Passport {
 	passportStrings := splitIntoStrings(input)
 	return parsePassports(passportStrings)
 }
@@ -29,8 +30,8 @@ func splitIntoStrings(input string) []string {
 	return lines
 }
 
-func parsePassports(lines []string) []Passport {
-	passports := []Passport{}
+func parsePassports(lines []string) []validation.Passport {
+	passports := []validation.Passport{}
 	for _, line := range lines {
 		passport := parsePassport(line)
 		passports = append(passports, passport)
@@ -39,8 +40,8 @@ func parsePassports(lines []string) []Passport {
 	return passports
 }
 
-func parsePassport(line string) Passport {
-	passport := Passport{
+func parsePassport(line string) validation.Passport {
+	passport := validation.Passport{
 		BirthYear:      util.ToNumber(extractValue(line, "byr")),
 		IssueYear:      util.ToNumber(extractValue(line, "iyr")),
 		ExpirationYear: util.ToNumber(extractValue(line, "eyr")),
