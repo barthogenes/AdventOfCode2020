@@ -2,10 +2,10 @@ package day2
 
 import (
 	"regexp"
-	"strconv"
 	"strings"
 
 	"github.com/barthogenes/adventofcode2020/api"
+	"github.com/barthogenes/adventofcode2020/util"
 )
 
 // GetInput Get the input from adventofcode.com.
@@ -40,16 +40,8 @@ func stringToPasswordPolicySet(input string) PasswordPolicySet {
 	re := regexp.MustCompile("(\\d+)-(\\d+) (\\w): (\\w+)")
 	found := re.FindStringSubmatch(input)
 
-	min, err := strconv.Atoi(found[1])
-	if err != nil {
-		panic(err)
-	}
-
-	max, err := strconv.Atoi(found[2])
-	if err != nil {
-		panic(err)
-	}
-
+	min := util.ToNumber(found[1])
+	max := util.ToNumber(found[2])
 	char := found[3]
 	password := found[4]
 

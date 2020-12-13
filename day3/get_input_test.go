@@ -7,9 +7,11 @@ import (
 
 func Test_getGrid(t *testing.T) {
 	// Arrange
-	var input = `..##...
+	var input = `
+..##...
 #...#..
-.#....#`
+.#....#
+`
 
 	// Act
 	got := getGrid(input)
