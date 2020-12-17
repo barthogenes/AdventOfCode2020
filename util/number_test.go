@@ -3,7 +3,7 @@ package util
 import "testing"
 
 func Test_ToNumber_parses_string(t *testing.T) {
-	// Act
+	// Arrange, Act
 	got := ToNumber("123")
 
 	// Assert
@@ -13,7 +13,7 @@ func Test_ToNumber_parses_string(t *testing.T) {
 }
 
 func Test_ToNumber_parses_empty_string(t *testing.T) {
-	// Act
+	// Arrange, Act
 	got := ToNumber("")
 
 	// Assert
