@@ -85,6 +85,32 @@ func Test_calculateSeatID(t *testing.T) {
 	}
 }
 
+func Test_calculateRowNumber(t *testing.T) {
+	type args struct {
+		rowCode string
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "RowCode FBFBBFF",
+			args: args{
+				rowCode: "FBFBBFF",
+			},
+			want: 44,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := calculateRowNumber(tt.args.rowCode); got != tt.want {
+				t.Errorf("calculateRowNumber() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func Test_binaryDivide(t *testing.T) {
 	type args struct {
 		firstHalf bool
@@ -120,11 +146,21 @@ func Test_binaryDivide(t *testing.T) {
 		{
 			name: "Boarding pass FBFBBFFRLR letter 3 (F)",
 			args: args{
-				firstHalf: false,
+				firstHalf: true,
 				begin:     32,
 				end:       63,
 			},
 			wantNewBegin: 32,
+			wantNewEnd:   47,
+		},
+		{
+			name: "Boarding pass FBFBBFFRLR letter 4 (B)",
+			args: args{
+				firstHalf: false,
+				begin:     32,
+				end:       47,
+			},
+			wantNewBegin: 40,
 			wantNewEnd:   47,
 		},
 	}
