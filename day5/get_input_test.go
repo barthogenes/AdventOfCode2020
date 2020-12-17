@@ -18,32 +18,24 @@ BBFFBBFRLL`
 	// Assert
 	want := []BoardingPass{
 		{
-			RowCode:      "FBFBBFF",
-			RowNumber:    0,
-			ColumnCode:   "RLR",
-			ColumnNumber: 0,
-			SeatID:       0,
+			RowNumber:    44,
+			ColumnNumber: 5,
+			SeatID:       357,
 		},
 		{
-			RowCode:      "BFFFBBF",
-			RowNumber:    0,
-			ColumnCode:   "RRR",
-			ColumnNumber: 0,
-			SeatID:       0,
+			RowNumber:    70,
+			ColumnNumber: 7,
+			SeatID:       567,
 		},
 		{
-			RowCode:      "FFFBBBF",
-			RowNumber:    0,
-			ColumnCode:   "RRR",
-			ColumnNumber: 0,
-			SeatID:       0,
+			RowNumber:    14,
+			ColumnNumber: 7,
+			SeatID:       119,
 		},
 		{
-			RowCode:      "BBFFBBF",
-			RowNumber:    0,
-			ColumnCode:   "RLL",
-			ColumnNumber: 0,
-			SeatID:       0,
+			RowNumber:    102,
+			ColumnNumber: 4,
+			SeatID:       820,
 		},
 	}
 	if !reflect.DeepEqual(got, want) {
