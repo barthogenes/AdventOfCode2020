@@ -4,3 +4,7 @@ package day5
 func GetAnswerPart1(input []BoardingPass) int {
 	return 0
 }
+
+func calculateSeatID(boardingPass BoardingPass) BoardingPass {
+	return boardingPass
+}
