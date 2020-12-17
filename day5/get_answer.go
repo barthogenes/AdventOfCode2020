@@ -16,6 +16,7 @@ func GetAnswerPart1(input []BoardingPass) int {
 func calculateSeatID(boardingPass BoardingPass) BoardingPass {
 	boardingPass.RowNumber = calculateRowNumber(boardingPass.RowCode)
 	boardingPass.ColumnNumber = calculateColumnNumber(boardingPass.ColumnCode)
+	boardingPass.SeatID = boardingPass.RowNumber*8 + boardingPass.ColumnNumber
 	return boardingPass
 }
 
