@@ -1,6 +1,8 @@
 package day5
 
 import (
+	"strings"
+
 	"github.com/barthogenes/adventofcode2020/api"
 )
 
@@ -20,5 +22,21 @@ func GetInput(api api.AdventOfCodeAPI) []BoardingPass {
 }
 
 func parseBoardingPasses(input string) []BoardingPass {
-	return []BoardingPass{}
+	lines := strings.Split(input, "\n")
+	boardingPasses := []BoardingPass{}
+	for _, line := range lines {
+		if line == "" {
+			continue
+		}
+		boardingPass := parseBoardingPass(line)
+		boardingPasses = append(boardingPasses, boardingPass)
+	}
+	return boardingPasses
+}
+
+func parseBoardingPass(line string) BoardingPass {
+	return BoardingPass{
+		RowCode:    line[0:7],
+		ColumnCode: line[7:10],
+	}
 }
