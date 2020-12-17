@@ -84,3 +84,59 @@ func Test_calculateSeatID(t *testing.T) {
 		})
 	}
 }
+
+func Test_binaryDivide(t *testing.T) {
+	type args struct {
+		firstHalf bool
+		begin     int
+		end       int
+	}
+	tests := []struct {
+		name         string
+		args         args
+		wantNewBegin int
+		wantNewEnd   int
+	}{
+		{
+			name: "Boarding pass FBFBBFFRLR letter 1 (F)",
+			args: args{
+				firstHalf: true,
+				begin:     0,
+				end:       127,
+			},
+			wantNewBegin: 0,
+			wantNewEnd:   63,
+		},
+		{
+			name: "Boarding pass FBFBBFFRLR letter 2 (B)",
+			args: args{
+				firstHalf: false,
+				begin:     0,
+				end:       63,
+			},
+			wantNewBegin: 32,
+			wantNewEnd:   63,
+		},
+		{
+			name: "Boarding pass FBFBBFFRLR letter 3 (F)",
+			args: args{
+				firstHalf: false,
+				begin:     32,
+				end:       63,
+			},
+			wantNewBegin: 32,
+			wantNewEnd:   47,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotNewBegin, gotNewEnd := binaryDivide(tt.args.firstHalf, tt.args.begin, tt.args.end)
+			if gotNewBegin != tt.wantNewBegin {
+				t.Errorf("binaryDivide() gotNewBegin = %v, want %v", gotNewBegin, tt.wantNewBegin)
+			}
+			if gotNewEnd != tt.wantNewEnd {
+				t.Errorf("binaryDivide() gotNewEnd = %v, want %v", gotNewEnd, tt.wantNewEnd)
+			}
+		})
+	}
+}

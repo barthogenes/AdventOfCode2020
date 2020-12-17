@@ -8,3 +8,9 @@ func GetAnswerPart1(input []BoardingPass) int {
 func calculateSeatID(boardingPass BoardingPass) BoardingPass {
 	return boardingPass
 }
+
+func binaryDivide(firstHalf bool, begin, end int) (newBegin, newEnd int) {
+	newBegin = begin
+	newEnd = end
+	return
+}
