@@ -15,6 +15,7 @@ func GetAnswerPart1(input []BoardingPass) int {
 
 func calculateSeatID(boardingPass BoardingPass) BoardingPass {
 	boardingPass.RowNumber = calculateRowNumber(boardingPass.RowCode)
+	boardingPass.ColumnNumber = calculateColumnNumber(boardingPass.ColumnCode)
 	return boardingPass
 }
 
@@ -22,6 +23,15 @@ func calculateRowNumber(rowCode string) int {
 	begin, end := 0, 127
 	for _, char := range rowCode {
 		begin, end = binaryDivide(string(char) == "F", begin, end)
+	}
+
+	return begin
+}
+
+func calculateColumnNumber(columnCode string) int {
+	begin, end := 0, 7
+	for _, char := range columnCode {
+		begin, end = binaryDivide(string(char) == "L", begin, end)
 	}
 
 	return begin

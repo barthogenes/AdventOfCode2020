@@ -111,6 +111,32 @@ func Test_calculateRowNumber(t *testing.T) {
 	}
 }
 
+func Test_calculateColumnNumber(t *testing.T) {
+	type args struct {
+		columnCode string
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "ColumnCode RLR",
+			args: args{
+				columnCode: "RLR",
+			},
+			want: 5,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := calculateColumnNumber(tt.args.columnCode); got != tt.want {
+				t.Errorf("calculateColumnNumber() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func Test_binaryDivide(t *testing.T) {
 	type args struct {
 		firstHalf bool
