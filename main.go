@@ -69,4 +69,7 @@ func main() {
 	day5Input := day5.GetInput(api)
 	answerDay5Part1 := day5.GetAnswerPart1(day5Input)
 	fmt.Println("Part 1 answer =", answerDay5Part1)
+
+	answerDay5Part2 := day5.GetAnswerPart2(day5Input)
+	fmt.Println("Part 2 answer =", answerDay5Part2)
 }
