@@ -6,6 +6,11 @@ import (
 	"path/filepath"
 )
 
+// File ...
+type File struct {
+	osFile *os.File
+}
+
 // ReadFile ...
 func ReadFile(file string) string {
 	path, err := filepath.Abs(file)
@@ -17,11 +22,6 @@ func ReadFile(file string) string {
 		panic(err)
 	}
 	return string(data)
-}
-
-// File ...
-type File struct {
-	osFile *os.File
 }
 
 // Open ...
@@ -38,12 +38,17 @@ func (file *File) Open(fileName string) {
 	file.osFile = f
 }
 
+// Read ...
+func (file *File) Read() string {
+	data, err := ioutil.ReadFile(file.osFile.Name())
+	if err != nil {
+		panic(err)
+	}
+	return string(data)
+}
+
 // Write ...
 func (file *File) Write(data string) {
-	if file.osFile == nil {
-		panic("test")
-	}
-
 	_, err := file.osFile.WriteString(data)
 	if err != nil {
 		panic(err)

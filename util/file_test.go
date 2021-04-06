@@ -2,9 +2,16 @@ package util
 
 import "testing"
 
-func Test_ReadFile(t *testing.T) {
+func Test_Open_Write_Read_And_Close_File(t *testing.T) {
+	// Arrange
+	file := File{}
+	file.Open("file_test.txt")
+
 	// Act
-	got := ReadFile("file_test.txt")
+	file.Write(`abc 123
+def 456`)
+	got := file.Read()
+	file.Close()
 
 	// Assert
 	wantWindows := "abc 123\r\ndef 456"
