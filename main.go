@@ -14,6 +14,7 @@ import (
 	"github.com/barthogenes/adventofcode2020/day4"
 	"github.com/barthogenes/adventofcode2020/day5"
 	"github.com/barthogenes/adventofcode2020/day6"
+	"github.com/barthogenes/adventofcode2020/day7"
 	"github.com/barthogenes/adventofcode2020/util"
 )
 
@@ -28,6 +29,7 @@ func main() {
 
 	// Showing the answers to the user.
 	fmt.Println("AdventOfCode2020 puzzle implementations in Go, by Bart Hogenes :)")
+	defer util.Track(util.Runningtime("execution"))
 
 	// Day 1
 	fmt.Println("Day 1 - Report Repair:")
@@ -80,4 +82,13 @@ func main() {
 	answerDay6Part1, answerDay6Part2 := day6.GetAnswers(day6Input)
 	fmt.Println("Part 1 answer =", answerDay6Part1)
 	fmt.Println("Part 2 answer =", answerDay6Part2)
+
+	// Day 7
+	fmt.Println("Day 7 - Handy Haversacks:")
+	day7Part1Input := day7.GetInputForPart1(api)
+	day7Part2Input := day7.GetInputForPart2(api)
+	answerDay7Part1 := day7.GetAnswerForPart1(day7Part1Input)
+	answerDay7Part2 := day7.GetAnswerForPart2(day7Part2Input)
+	fmt.Println("Part 1 answer =", answerDay7Part1)
+	fmt.Println("Part 2 answer =", answerDay7Part2)
 }
