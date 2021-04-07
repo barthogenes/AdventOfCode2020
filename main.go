@@ -28,6 +28,7 @@ func main() {
 
 	// Showing the answers to the user.
 	fmt.Println("AdventOfCode2020 puzzle implementations in Go, by Bart Hogenes :)")
+	defer util.Track(util.Runningtime("execution"))
 
 	// Day 1
 	fmt.Println("Day 1 - Report Repair:")
