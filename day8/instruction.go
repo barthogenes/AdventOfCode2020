@@ -10,7 +10,8 @@ type InstructionType int
 
 const (
 	NoOPeration InstructionType = iota
-	test
+	Jump
+	Accumulate
 )
 
 func (it InstructionType) String() string {
@@ -32,6 +33,14 @@ func (i *Instruction) SetFromString(instruction string) {
 func (i *Instruction) SetTypeFromString(instructionType string) {
 	if instructionType == "nop" {
 		i.Type = NoOPeration
+	}
+
+	if instructionType == "jmp" {
+		i.Type = Jump
+	}
+
+	if instructionType == "acc" {
+		i.Type = Accumulate
 	}
 }
 
