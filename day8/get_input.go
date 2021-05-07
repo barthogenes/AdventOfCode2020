@@ -8,3 +8,7 @@ import (
 func GetInputForPart1(api api.AdventOfCodeAPI) string {
 	return api.GetInputForDay(8)
 }
+
+func parseInput(input string) []Instruction {
+	return []Instruction{}
+}
