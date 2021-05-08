@@ -7,22 +7,21 @@ import (
 
 func Test_GetAnswerForPart1(t *testing.T) {
 	// Arrange
-	input := []Instruction{
-		{
-			Type:     Accumulate,
-			Argument: 3,
-		},
-		{
-			Type:     Jump,
-			Argument: -1,
-		},
-	}
+	input := `nop +0
+	acc +1
+	jmp +4
+	acc +3
+	jmp -3
+	acc -99
+	acc +1
+	jmp -4
+	acc +6`
 
 	// Act
-	got := GetAnswerForPart1(input)
+	got := GetAnswerForPart1(parseInput(input))
 
 	// Assert
-	want := 3
+	want := 5
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("parseInput() = %v, want %v", got, want)
 	}

@@ -7,8 +7,8 @@ import (
 )
 
 // GetInputForPart1 Get the input for the 8th day.
-func GetInputForPart1(api api.AdventOfCodeAPI) string {
-	return api.GetInputForDay(8)
+func GetInputForPart1(api api.AdventOfCodeAPI) []Instruction {
+	return parseInput(api.GetInputForDay(8))
 }
 
 func parseInput(input string) []Instruction {
