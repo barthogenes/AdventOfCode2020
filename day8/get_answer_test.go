@@ -26,3 +26,25 @@ func Test_GetAnswerForPart1(t *testing.T) {
 		t.Errorf("parseInput() = %v, want %v", got, want)
 	}
 }
+
+func Test_GetAnswerForPart2(t *testing.T) {
+	// Arrange
+	input := `nop +0
+	acc +1
+	jmp +4
+	acc +3
+	jmp -3
+	acc -99
+	acc +1
+	jmp -4
+	acc +6`
+
+	// Act
+	got := GetAnswerForPart2(parseInput(input))
+
+	// Assert
+	want := 8
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("parseInput() = %v, want %v", got, want)
+	}
+}
