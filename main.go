@@ -15,6 +15,7 @@ import (
 	"github.com/barthogenes/adventofcode2020/day5"
 	"github.com/barthogenes/adventofcode2020/day6"
 	"github.com/barthogenes/adventofcode2020/day7"
+	"github.com/barthogenes/adventofcode2020/day8"
 	"github.com/barthogenes/adventofcode2020/util"
 )
 
@@ -91,4 +92,12 @@ func main() {
 	answerDay7Part2 := day7.GetAnswerForPart2(day7Part2Input)
 	fmt.Println("Part 1 answer =", answerDay7Part1)
 	fmt.Println("Part 2 answer =", answerDay7Part2)
+
+	// Day 8
+	fmt.Println("Day 8 - Handheld Halting:")
+	day8Input := day8.GetInput(api)
+	answerDay8Part1 := day8.GetAnswerForPart1(day8Input)
+	answerDay8Part2 := day8.GetAnswerForPart2(day8Input)
+	fmt.Println("Part 1 answer =", answerDay8Part1)
+	fmt.Println("Part 2 answer =", answerDay8Part2)
 }
