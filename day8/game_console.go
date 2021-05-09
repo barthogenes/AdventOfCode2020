@@ -6,14 +6,14 @@ type GameConsole struct {
 	LineHitCount map[int]int
 }
 
-func (gc *GameConsole) Start() int {
+func (gc *GameConsole) Start() (int, int) {
 	gc.LineHitCount = make(map[int]int)
 
 	i := 0
 	for i < len(gc.Instructions) {
 		_, exists := gc.LineHitCount[i+1]
 		if exists {
-			return gc.Accumulator
+			return gc.Accumulator, -1
 		}
 		gc.LineHitCount[i+1] = 1
 
@@ -29,5 +29,5 @@ func (gc *GameConsole) Start() int {
 		i++
 	}
 
-	return gc.Accumulator
+	return gc.Accumulator, 0
 }

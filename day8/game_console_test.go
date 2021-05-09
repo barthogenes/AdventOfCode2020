@@ -56,11 +56,13 @@ func TestGameConsole_Start_returns_Accumulator(t *testing.T) {
 	gameConsole.Instructions = instructions
 
 	// Act
-	got := gameConsole.Start()
+	got, returnCode := gameConsole.Start()
 
 	// Assert
-	if want := 25; got != want {
-		t.Errorf("gameConsole.Start() = %v, want %v", got, want)
+	want := 25
+	wantReturnCode := 0
+	if got != want || returnCode != wantReturnCode {
+		t.Errorf("gameConsole.Start() = (%v, %v), want (%v, %v)", got, want, returnCode, wantReturnCode)
 	}
 }
 
@@ -80,10 +82,12 @@ func TestGameConsole_Start_returns_Accumulator_on_infinite_loop_detection(t *tes
 	gameConsole.Instructions = instructions
 
 	// Act
-	got := gameConsole.Start()
+	got, returnCode := gameConsole.Start()
 
 	// Assert
-	if want := 1; got != want {
-		t.Errorf("gameConsole.Start() = %v, want %v", got, want)
+	want := 1
+	wantReturnCode := -1
+	if got != want || returnCode != wantReturnCode {
+		t.Errorf("gameConsole.Start() = (%v, %v), want (%v, %v)", got, want, returnCode, wantReturnCode)
 	}
 }

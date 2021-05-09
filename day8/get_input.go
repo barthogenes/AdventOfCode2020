@@ -6,8 +6,8 @@ import (
 	"github.com/barthogenes/adventofcode2020/api"
 )
 
-// GetInputForPart1 Get the input for the 8th day.
-func GetInputForPart1(api api.AdventOfCodeAPI) []Instruction {
+// GetInput Get the input for the 8th day.
+func GetInput(api api.AdventOfCodeAPI) []Instruction {
 	return parseInput(api.GetInputForDay(8))
 }
 

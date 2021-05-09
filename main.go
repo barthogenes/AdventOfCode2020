@@ -95,7 +95,9 @@ func main() {
 
 	// Day 8
 	fmt.Println("Day 8 - Handheld Halting:")
-	day8Part1Input := day8.GetInputForPart1(api)
-	answerDay8Part1 := day8.GetAnswerForPart1(day8Part1Input)
+	day8Input := day8.GetInput(api)
+	answerDay8Part1 := day8.GetAnswerForPart1(day8Input)
+	answerDay8Part2 := day8.GetAnswerForPart2(day8Input)
 	fmt.Println("Part 1 answer =", answerDay8Part1)
+	fmt.Println("Part 2 answer =", answerDay8Part2)
 }
