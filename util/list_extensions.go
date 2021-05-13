@@ -31,6 +31,9 @@ func get(l *list.List, f func(float64, float64) float64) int {
 		for !firstValOk {
 			val, firstValOk = element.Value.(int)
 			element = element.Next()
+			if element == nil {
+				return val
+			}
 		}
 
 		elVal, ok := element.Value.(int)
