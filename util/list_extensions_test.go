@@ -5,53 +5,29 @@ import (
 	"testing"
 )
 
-func TestGetMax(t *testing.T) {
+func Test_Get_functions_support_lists_with_non_integer_items(t *testing.T) {
 	// Arrange
 	input := list.New()
-	input.PushFront(5)
-	input.PushFront(2)
-	input.PushFront(8)
+	input.PushBack("test1")
+	input.PushBack(5)
+	input.PushBack(2)
+	input.PushBack("test2")
+	input.PushBack(8)
 
-	// Act
+	// Act, Assert
 	got := GetMax(input)
-
-	// Assert
 	want := 8
 	if got != want {
 		t.Errorf("GetMax() = %v, want %v", got, want)
 	}
-}
-
-func TestGetMin(t *testing.T) {
-	// Arrange
-	input := list.New()
-	input.PushFront(5)
-	input.PushFront(2)
-	input.PushFront(8)
-
-	// Act
-	got := GetMin(input)
-
-	// Assert
-	want := 2
+	got = GetMin(input)
+	want = 2
 	if got != want {
-		t.Errorf("GetMax() = %v, want %v", got, want)
+		t.Errorf("GetMin() = %v, want %v", got, want)
 	}
-}
-
-func TestGetSum(t *testing.T) {
-	// Arrange
-	input := list.New()
-	input.PushFront(5)
-	input.PushFront(2)
-	input.PushFront(8)
-
-	// Act
-	got := GetSum(input)
-
-	// Assert
-	want := 15
+	got = GetSum(input)
+	want = 15
 	if got != want {
-		t.Errorf("GetMax() = %v, want %v", got, want)
+		t.Errorf("GetSum() = %v, want %v", got, want)
 	}
 }
