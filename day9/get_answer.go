@@ -18,3 +18,12 @@ func GetAnswerForPart1(input []int, preambleSize int) int {
 
 	return 0
 }
+
+// GetAnswerForPart2 Get the answer for part 2 of the Day 9 puzzle.
+func GetAnswerForPart2(input []int, invalidNumber int) int {
+	ewf := EncryptionWeaknessFinder{
+		InvalidNumber: invalidNumber,
+	}
+
+	return ewf.FindWeakness(input)
+}

@@ -106,5 +106,7 @@ func main() {
 	fmt.Println("Day 9 - Encoding Error:")
 	day9Input := day9.GetInput(api)
 	answerDay9Part1 := day9.GetAnswerForPart1(day9Input, 25)
+	answerDay9Part2 := day9.GetAnswerForPart2(day9Input, answerDay9Part1)
 	fmt.Println("Part 1 answer =", answerDay9Part1)
+	fmt.Println("Part 2 answer =", answerDay9Part2)
 }
