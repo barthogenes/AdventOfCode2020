@@ -16,6 +16,7 @@ import (
 	"github.com/barthogenes/adventofcode2020/day6"
 	"github.com/barthogenes/adventofcode2020/day7"
 	"github.com/barthogenes/adventofcode2020/day8"
+	"github.com/barthogenes/adventofcode2020/day9"
 	"github.com/barthogenes/adventofcode2020/util"
 )
 
@@ -100,4 +101,12 @@ func main() {
 	answerDay8Part2 := day8.GetAnswerForPart2(day8Input)
 	fmt.Println("Part 1 answer =", answerDay8Part1)
 	fmt.Println("Part 2 answer =", answerDay8Part2)
+
+	// Day 9
+	fmt.Println("Day 9 - Encoding Error:")
+	day9Input := day9.GetInput(api)
+	answerDay9Part1 := day9.GetAnswerForPart1(day9Input, 25)
+	answerDay9Part2 := day9.GetAnswerForPart2(day9Input, answerDay9Part1)
+	fmt.Println("Part 1 answer =", answerDay9Part1)
+	fmt.Println("Part 2 answer =", answerDay9Part2)
 }
